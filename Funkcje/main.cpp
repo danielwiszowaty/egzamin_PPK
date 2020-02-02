@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -36,6 +37,17 @@ void OdwrocTablice(double tablica[], const int N){
 		swap(tablica[i], tablica[j]);
 }
 
+//Simiński
+
+void odwroc(int * tab, const int ROZMIAR)
+{
+    int * pLewy = tab;
+    int * pPrawy = (tab + ROZMIAR - 1);
+    
+    while(pLewy < pPrawy)
+        std::swap(*pLewy++, *pPrawy--);
+}
+
 /* Proszę napisać funkcję, która przyjmuje tablicę liczb całkowitych i rozmiar tablicy, i zwraca liczbę
 liczb parzystych zawartych w tablicy */
 
@@ -61,6 +73,22 @@ void Modulo(int tablica[], const int N, int modulo){
 	}
 }
 
+/* Proszę napiszą funkcję, która przyjmuje wektor liczb zmiennoprzecinkowych i zwraca wektor tychże
+liczb w odwrotnej kolejności. */
+
+vector<double> OdwrocWektor(vector<double> &wektor){
+	reverse(wektor.begin(), wektor.end());
+	return wektor;
+}
+
+/* Proszę napisać funkcję, która przyjmuje dwa posortowane wektory liczb całkowitych i zwraca posortowany 
+wektor zawierający wszystkie liczby. Nie można użyć tutaj funkcji sortującej. */
+
+vector<int> PolaczWektor(vector<int> wektor1, vector<int> wektor2){
+
+}
+
+
 
 int main(){
 	double a= 2.41, b= 4.32, c= 5.41, d=1.15, e=54.2;
@@ -83,6 +111,11 @@ int main(){
 	for(int i=0; i<rozmiar2; i++)
 		cout<<tablica2[i]<<" ";
 	cout<<endl;
+
+	vector<double> wektor {43.2, 4411.4, 431.2, 45.64, 43.22};
+	OdwrocWektor(wektor);
+	for (auto ile : wektor)
+		cout<<ile<<" ";
 
 	return 0;
 }
