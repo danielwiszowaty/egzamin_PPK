@@ -41,6 +41,32 @@ int* kontankentuj(const int* t1, const int n1, const int* t2, const int n2){
 	return tablica;
 }
 
+/** Funkcja scala dwie tablice posortowane, tzn. tworzy nową tablicę i kopiuje do niej elementy z obu 
+tablic w ten sposób, że w tablicy wynikowej elementy są także posortowane.
+Żeby obniżyć złożoność obliczeniową, funkcja nie korzysta z sortowania.
+@param t1 adres pierwszej tablicy posortowanej
+@param N rozmiar pierwszej tablicy posortowanej
+@param t2 adres drugiej tablicy posortowanej
+@param M rozmiar pierwszej tablicy posortowanej
+@return adres nowej tablicy posortowanej (o rozmiarze
+n1+n2 ) zawierającej kopie elementów z pierwszej i drugiej tablicy
+*/
+
+int* scal(int* t1, const int N, int* t2, const int M){
+	int* tablica = new int[N + M];
+
+	int i=0, j=0, k=0;
+
+	while(i < N and j < M)
+		tablica[k++] = t1[i] < t2[j] ? t1[i++] : t2[j++];
+	while(i < N)
+		tablica[k++] = t1[i++];
+	while(j < M)
+		tablica[k++] = t2[j++];
+
+	return tablica;
+}
+
 int main(){
 
 	const int size = 10;
