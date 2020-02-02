@@ -1,26 +1,31 @@
-kompilator=clang++
-#kompilator=g++
-standard=-std=c++14
-optymalizacja=-O3
+kompilator=gcc
+standard=-std=c11
+#optymalizacja=-O3
 errors=-pedantic-errors
-#address=-fsanitize=address
-leak=-fsanitize=leak
-#debug=-g
-debug=
+optymalizacja=
+debug=-g
+#debug=
+profilowanie=-pg
+#memory=-fsanitize=leak
 
 .PHONY: clean
 
 __ : main
-	./main   
+	./main    
+#	valgrind --leak-check=yes ./main
 	
 	
-main : main.o  
-	$(kompilator) $(standard) $(address) $(leak) $(debug) $(optymalizacja) -pedantic-errors -o $@ $^ 
+main : main.o
+	$(kompilator) $(standard) $(debug) $(optymalizacja) $(memory) -pedantic-errors -o $@ $^ 
 	            
 
-main.o : main.cpp
-	$(kompilator) $(standard) $(address) $(leak) $(debug) $(optymalizacja) $(errors) -c -o $@ $^ 
-	            
+main.o : main.c
+	$(kompilator) $(standard) $(debug) $(optymalizacja) $(errors) $(memory) -c -o $@ $^ 
+	
+
+########################
+		
+ 
 	
 clean : 	
 	for f in `ls *.o *~ ` ; do  if [ -f $$f ] ; then rm $$f  ; fi;   done;

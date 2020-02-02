@@ -1,9 +1,8 @@
-#include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
-using namespace std;
 
 bool palindrom (const char* str){
 	int poczatek = 0;
@@ -38,6 +37,18 @@ void odwroc(char* str){
 		str++;
 		t--;
 	}
+}
+
+size_t zamien(char * str, const char old_char, const char new_char){
+	size_t licznik=0;
+	while(*str++){
+		if(*str == old_char)
+		{
+			++licznik;
+			*str = new_char;
+		}
+	}
+	return licznik;
 }
 
 int my_strcmp (const char * s, const char * t)
@@ -79,7 +90,9 @@ void my_strcpy (char * cel, const char * zrodlo)
 
 int main(){
 
-	cout<<palindrom2("abba");
-	cout<<palindrom2("abcdba");
+	printf("%d\n", palindrom2("abba"));
+	printf("%d\n", palindrom2("abcba"));
+	printf("%zu\n", zamien("abcd", 'c' , 'a'));
+
 	return 0;
 }
