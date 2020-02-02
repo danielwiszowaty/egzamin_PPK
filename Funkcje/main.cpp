@@ -84,10 +84,6 @@ vector<double> OdwrocWektor(vector<double> &wektor){
 /* Proszę napisać funkcję, która przyjmuje dwa posortowane wektory liczb całkowitych i zwraca posortowany 
 wektor zawierający wszystkie liczby. Nie można użyć tutaj funkcji sortującej. */
 
-vector<int> PolaczWektor(vector<int> wektor1, vector<int> wektor2){
-
-}
-
 
 
 int main(){
