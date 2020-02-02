@@ -1,0 +1,11 @@
+kompilacja projektu
+===================
+
+Trzeba skompilować wszystkie pliki źródłowe (*.cpp) z katalogu bieżącego i katalogu memory/nwva.
+
+Robi to makefile :-)
+
+W Visualu trzeba utworzyć pusty projekt i dodać w «Solution explorer» do katalogu «pliki źródłowe (source files)» pliki *.cpp, a do «pliki nagłówkowe (header files)»  – pliki *.h.
+Jeżeli kompilator zgłosi brak prekompilowanych nagłówków, to wtedy we właściwościach projektu trzeba ustawić ustawić przy prekompilowanych nagłówkach «not using».
+
+
