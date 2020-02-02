@@ -104,7 +104,7 @@ int main (int ile, char ** params)
 
    
    printf("%i + %i == %i\n", b, c, SUMA(b, c));   
-//    return 0;
+//   return 0;
 //    int d = 3;
 //    int e = 2;
    printf("%i\n", SUMA(b, c));   
@@ -118,7 +118,7 @@ int main (int ile, char ** params)
    printf("%i\n", MNOZ(2 + 3, 2));
    printf("%i\n", (2 + 3 * 2));
    
-//    return 0;
+   return 0;
   
    
 #define SUMA2(a, b)  (a + b)
@@ -268,7 +268,7 @@ int main (int ile, char ** params)
 #
     
     
-#    define SWAP(a, b, typ) do { typ p = a; a = b; b = p; } while(0)  
+#    define SWAP(a, b, typ) do { typ p = a; a = b; b = p; }  (0)  
    
    int aa = 9;
    int bb = 4;

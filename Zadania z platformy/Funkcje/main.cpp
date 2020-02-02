@@ -16,6 +16,21 @@ double Minimum(double a, double b, double c, double d, double e){
 	return najmnniejsza;
 }
 
+/* Proszę napisać fragment kodu, który sortuje
+tablicę o rozmiarze const int N znanym w czasie kompilacji. */
+void SortujTablice(int tablica[], const int N){
+	int temp;
+	for(int i=0; i<N; i++){
+		for(int j=0; j<N; j++){
+			if(tablica[j]>tablica[i]){
+				temp=tablica[i];
+				tablica[i]=tablica[j];
+				tablica[j]=temp;
+			}
+		}
+	}
+}
+
 /* Proszę napisać funkcję, która przyjmuje tablicę liczb zmiennoprzecinkowych i rozmiar tablicy, i zwraca
 ich minimum */
 

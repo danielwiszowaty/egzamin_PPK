@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include <sstream>
 
 using namespace std;
 
@@ -62,6 +63,7 @@ int main(){
 	cout<<endl;
 	//zapisz_losowe(cout);
 	//cout<<srednia_liczb(cin);
+	cout << t4;
 
 	return 0;
 }
