@@ -2,6 +2,8 @@
 #define funkcje_hpp
 
 #include <stdio.h>
+#include <deque>
+#include <iostream>
 
 typedef int T;
 struct wezel
@@ -13,13 +15,52 @@ struct wezel
 
 /** Funkcja dokonuje odbicia lustrzanego drzewa poszukiwać binarnych. Polega to na zmianie uporządkowania drzewa − wartości mniejsze są położone na prawo, a wartości większe na lewo.
     @param pRoot korzeń drzewa */
-void odbij ( wezel * pRoot );
+void odbij ( wezel * pRoot ){
+    if(not pRoot)
+        return;
+    else{
+        wezel* temp;
+        odbij(pRoot->pLewy);
+        odbij(pRoot->pPrawy);
+        temp = pRoot->pLewy;
+        pRoot->pLewy = pRoot->pPrawy;
+        pRoot->pPrawy = temp;
+    }
+}
 
 
 /** Funkcja wypisuje na standardowe wyjście wartości drzewa przy przechodzeniu wszerz. Jako kolejkę FIFO wykorzystana jest lista jedno− lub dwukierunkowa .
     @param pRoot korzeń drzewa
  */
-void wypiszWszerz ( wezel * pRoot );
+void wypiszWszerz ( wezel * pRoot ){
+    {
+    if (pRoot)
+    {
+        std::deque<wezel *> potomki;
+        potomki.push_front(pRoot);
+    
+        while (not potomki.empty())
+        {
+            // wyjmij z kolejki adres wezla
+            
+            auto p = potomki.back(); // odczytanie wartosci 
+            potomki.pop_back(); // usuniecie z konca
+//             auto p = potomki.front(); // odczytanie wartosci 
+//             potomki.pop_front(); // usuniecie z konca
+            
+            // wypisz wartosc schowana w wezle
+            
+            std::cout << p->wartosc << ' ';
+            // zapisz do kolejki adresy potomkow:
+            
+            if (p->pLewy)
+               potomki.push_front(p->pLewy);
+            if (p->pPrawy)
+               potomki.push_front(p->pPrawy);
+        }
+    }
+}
+}
 
 /** Funkcja wyszukuje nastepnik węzła. Następnikiem węzła jest kolejny węzeł pod względem wartości. Przykład: Jeżeli drzewo przechowuje wartości 1, 6, 9, 15, to następnikiem węzła przechowującego 6 jest węzeł przechowujący 9. Węzeł przechowujący 15 nie ma następnika.
     @param pRoot korzeń drzewa
