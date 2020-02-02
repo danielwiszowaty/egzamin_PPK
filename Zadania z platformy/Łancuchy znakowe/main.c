@@ -41,7 +41,7 @@ void odwroc(char* str){
 
 size_t zamien(char * str, const char old_char, const char new_char){
 	size_t licznik=0;
-	while(*str++){
+	while(str++){
 		if(*str == old_char)
 		{
 			++licznik;
